@@ -9,22 +9,23 @@ const login = async (req, res) => {
     const { email, password } = req.body;
     const userDoc = await User.find({ email })
     const userDocs = userDoc[0]
-    const passOk = bcrypt.compareSync(password, userDocs.password);
-    if (passOk) {
-        const Name = userDocs.firstName + " " + userDocs.lastName
-        //logedIn
-        jwt.sign({ email, id: userDocs._id, Name}, secret, {}, (err, token) => {
-            if (err) throw err;
-            res.cookie('token', token).json({
-                id: userDocs._id,
-                email,
-                Name
-            });
-        });
-        //res.json()
-    } else {
-        res.status(400).json('wrong Credentials')
-    }
+    console.log(userDocs)
+    // const passOk = bcrypt.compareSync(password, userDocs.password);
+    // if (passOk) {
+    //     const Name = userDocs.firstName + " " + userDocs.lastName
+    //     //logedIn
+    //     jwt.sign({ email, id: userDocs._id, Name}, secret, {}, (err, token) => {
+    //         if (err) throw err;
+    //         res.cookie('token', token).json({
+    //             id: userDocs._id,
+    //             email,
+    //             Name
+    //         });
+    //     });
+    //     //res.json()
+    // } else {
+    //     res.status(400).json('wrong Credentials')
+    // }
 }
 
 module.exports =login
