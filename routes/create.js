@@ -14,7 +14,7 @@ const create = async (req, res) => {
     const newPath = path + '.' + ext;
     fs.renameSync(path, newPath);
 
-    const  token  = req.cookies;
+    const  token  = req.cookies.token;
     console.log(token);
     // jwt.verify(token, secret, {}, async (err, info) => {
     //     if (err) throw err;
