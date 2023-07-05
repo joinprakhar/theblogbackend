@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const Post = require('../models/Post');
+const Post = require('./Post');
 const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
 const fs = require('fs');

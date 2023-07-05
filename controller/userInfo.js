@@ -1,5 +1,5 @@
-const Post = require('../models/Post');
-const User = require('../models/user');
+const Post = require('../routes/Post');
+const User = require('./User');
 
 
 const postId = async (req, res) => {

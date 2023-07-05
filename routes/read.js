@@ -1,4 +1,4 @@
-const Post = require('../models/Post');
+const Post = require('./Post');
 
 const readPost = async (req, res) => {
     res.json(

@@ -1,4 +1,4 @@
-const Post = require('../models/Post');
+const Post = require('./Post');
 
 const postId = async (req, res) => {
     const { id } = req.params;
