@@ -10,24 +10,24 @@ const login = async (req, res) => {
     const userDoc = await User.findOne({ email })
     console.log(password);
     console.log(userDoc.password);
-    // const passOk = bcrypt.compareSync(password, userDoc.password);
-    // if (passOk) {
-    //     const Name = userDoc.firstName + " " + userDoc.lastName
-    //     //logedIn
-    //     jwt.sign({ email, id: userDoc._id, Name}, secret, {}, (err, token) => {
-    //         if (err) throw err;
-    //         res.cookie('token', token).json({
-    //             id: userDoc._id,
-    //             email,
-    //             Name
-    //         });
-    //     });
-    //     console.log("done")
-    //     //res.json()
-    // } else {
-    //     res.status(400).json('wrong Credentials')
-    //     console.log("notdone")
-    // }
+    const passOk = bcrypt.compareSync(password, userDoc.password);
+    if (passOk) {
+        const Name = userDoc.firstName + " " + userDoc.lastName
+        //logedIn
+        jwt.sign({ email, id: userDoc._id, Name }, secret, {}, (err, token) => {
+            if (err) throw err;
+            res.cookie('token', token).json({
+                id: userDoc._id,
+                email,
+                Name
+            });
+        });
+        console.log("done")
+        //res.json()
+    } else {
+        res.status(400).json('wrong Credentials')
+        console.log("notdone")
+    }
 }
 
-module.exports =login
+module.exports = login
