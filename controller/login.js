@@ -15,7 +15,7 @@ const login = async (req, res) => {
         //logedIn
         const token = jwt.sign({ email, id: userDoc._id, Name }, secret, { expiresIn: '1h' })
             
-        res.cookie('token', token).json({
+        res.cookie('token', token, { httpOnly: true }).json({
                 id: userDoc._id,
                 email,
                 Name

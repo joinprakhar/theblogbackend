@@ -13,7 +13,7 @@ app.use(cors({
     origin: 'http://localhost:3000'
 }))
 app.use(express.json())
-app.use(cookieParser());
+app.use(cookieParser({ domain: 'https://blogbackend-e8fr.onrender.com' }));
 app.use('', express.static(__dirname + 'api/uploads'));
 
 const login = require('./controller/login');
