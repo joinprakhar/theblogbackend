@@ -7,7 +7,7 @@ const secret = "76b7u76u7u6bfxnghnchg7yjyujjjy";
 
 const login = async (req, res) => {
     const { email, password } = req.body;
-    const userDoc = await User.find({ email })
+    const userDoc = await User.findOne({ email })
     const userDocs = userDoc[0]
     console.log(userDoc)
     // const passOk = bcrypt.compareSync(password, userDocs.password);
