@@ -21,7 +21,7 @@ const login = async (req, res) => {
                 Name
             });
         });
-        console.log("done")
+        console.log("token", token);
         //res.json()
     } else {
         res.status(400).json('wrong Credentials')
