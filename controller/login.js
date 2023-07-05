@@ -22,7 +22,7 @@ const login = async (req, res) => {
             });
         
         console.log("token", token);
-        res.status(200).json({ message: 'Login successful', token });
+        //res.status(200).json({ message: 'Login successful', token });
         //res.json()
     } else {
         res.status(400).json('wrong Credentials')
