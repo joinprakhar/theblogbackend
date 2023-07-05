@@ -9,7 +9,7 @@ const login = async (req, res) => {
     const { email, password } = req.body;
     const userDoc = await User.find({ email })
     const userDocs = userDoc[0]
-    console.log(userDocs)
+    console.log(userDoc)
     // const passOk = bcrypt.compareSync(password, userDocs.password);
     // if (passOk) {
     //     const Name = userDocs.firstName + " " + userDocs.lastName
