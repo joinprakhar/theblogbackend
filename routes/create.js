@@ -9,11 +9,11 @@ const secret = "76b7u76u7u6bfxnghnchg7yjyujjjy";
 app.use(cookieParser());
 
 const create = async (req, res) => {
-    const { originalname, path } = req.file;
-    const parts = originalname.split('.');
-    const ext = parts[parts.length - 1];
-    const newPath = path + '.' + ext;
-    fs.renameSync(path, newPath);
+    // const { originalname, path } = req.file;
+    // const parts = originalname.split('.');
+    // const ext = parts[parts.length - 1];
+    // const newPath = path + '.' + ext;
+    // fs.renameSync(path, newPath);
  
     const { title, summary, content, image, category, email } = req.body;
     const userDoc = await User.findOne({ email })
@@ -23,7 +23,7 @@ const create = async (req, res) => {
             content,
             image,
             category,
-            cover: newPath,
+            //cover: newPath,
             filepath: path,
             author: userDoc._id
         });
