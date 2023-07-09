@@ -24,7 +24,7 @@ const create = async (req, res) => {
             image,
             category,
             //cover: newPath,
-            filepath: path,
+            //filepath: path,
             author: userDoc._id
         });
         res.json(postDoc);
