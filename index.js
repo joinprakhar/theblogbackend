@@ -10,7 +10,7 @@ const uploadMiddleware = multer({ dest: 'api/uploads' });
 dotenv.config();
 app.use(cors({
     credentials: true,
-    origin: 'http://localhost:3000'
+    origin: 'https://thepost.onrender.com/'
 }))
 app.use(express.json())
 app.use(cookieParser({ domain: 'https://blogbackend-e8fr.onrender.com' }));

@@ -8,7 +8,7 @@ const secret = "76b7u76u7u6bfxnghnchg7yjyujjjy";
 
 
 const profile = (req, res) => {
-    const { token } = req.body;
+    const { token } = req.cookie;
     if (token) {
         jwt.verify(token, secret, {}, (err, info) => {
             //if (err) throw err;
