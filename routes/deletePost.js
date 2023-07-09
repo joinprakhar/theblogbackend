@@ -9,21 +9,15 @@ app.use(cookieParser());
 
 const deletePost = async (req, res) => {
 
-    const { token } = req.cookies;
-    jwt.verify(token, secret, {}, async (err, info) => {
-        if (err) throw err;
-        const { id } = req.body;
+        const { id , userId } = req.body;
         const postId = await Post.findById(id);
-        const isAuthor = JSON.stringify(postId.author) == JSON.stringify(info.id);
+        const isAuthor = JSON.stringify(postId.author) == JSON.stringify(userId);
         if (!isAuthor) {
             return res.status(400).json('you are not the author');
         }
         await Post.findByIdAndRemove(postId._id)
 
         res.json(postId);
-        console.log(postId._id);
-    });
-
 }
 
 module.exports = deletePost
