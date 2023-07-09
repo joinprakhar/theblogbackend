@@ -13,17 +13,16 @@ const login = async (req, res) => {
     if (passOk) {
         const Name = userDoc.firstName + " " + userDoc.lastName
         //logedIn
-        const token = jwt.sign({ email, id: userDoc._id, Name }, secret, { expiresIn: '1h' })
+        const token = jwt.sign({ email, id: userDoc._id, Name }, secret,)
             
-        res.cookie('token', token, { httpOnly: true }).json({
+        res.cookie('token', token,).json({
                 id: userDoc._id,
                 email,
-                Name
+                Name,
+                token
             });
         
-        console.log("token", token);
-        //res.status(200).json({ message: 'Login successful', token });
-        //res.json()
+        
     } else {
         res.status(400).json('wrong Credentials')
         console.log("notdone")
