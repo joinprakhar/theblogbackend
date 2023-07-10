@@ -20,7 +20,7 @@ const login = async (req, res) => {
                 email,
                 Name,
                 token,
-                domain: 'https://theblogpost.netlify.app/'
+                domain: 'https://theblogpost.netlify.app'
             });
         
         
