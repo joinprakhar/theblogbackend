@@ -12,7 +12,7 @@ dotenv.config();
 
 app.use(cors({
     credentials: true,
-    origin: 'http://localhost:3000'
+    origin: 'https://theblogpost.netlify.app/'
 }))
 app.use(express.json())
 app.use(cookieParser());
