@@ -9,11 +9,11 @@ const uploadMiddleware = multer({ dest: 'api/uploads' });
 
 
 dotenv.config();
-app.UseCors(x => x
+app.use(cors(x => x
     .AllowAnyMethod()
     .AllowAnyHeader()
     .SetIsOriginAllowed(origin => true) // allow any origin
-    .AllowCredentials());
+    .AllowCredentials()))
 // app.use(cors({
 //     credentials: true,
 //     origin: 'https://theblogpost.netlify.app/' || "https://thepost.onrender.com/"
