@@ -12,12 +12,12 @@ dotenv.config();
 
 app.use(cors({
     credentials: true,
-    origin: 'https://theblogpost.netlify.app'
+    origin: 'http://localhost:3000'
 }))
 app.use(express.json())
 app.use(cookieParser({ domain: 'https://blogbackend-e8fr.onrender.com' }));
 app.use('', express.static(__dirname + 'api/uploads'));
-// app.use(express.static(path.join(__dirname , './client/build'))); || "https://thepost.onrender.com"
+// app.use(express.static(path.join(__dirname , './client/build'))); || "https://thepost.onrender.com""https://theblogpost.netlify.app"
 
 // app.get('*', function (req, res){
 //     res.sendFile(path.join(__dirname, "./client/build/index.html"))
