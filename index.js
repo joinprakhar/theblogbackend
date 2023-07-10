@@ -11,7 +11,7 @@ const uploadMiddleware = multer({ dest: 'api/uploads' });
 dotenv.config();
 app.use(cors({
     credentials: true,
-    origin: 'https://theblogpost.netlify.app/'
+    origin: 'https://theblogpost.netlify.app/' || "https://thepost.onrender.com/"
 }))
 app.use(express.json())
 app.use(cookieParser({ domain: 'https://blogbackend-e8fr.onrender.com' }));
