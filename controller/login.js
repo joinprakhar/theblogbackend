@@ -18,7 +18,7 @@ const login = async (req, res) => {
         res.cookie('token', token, {
             httpOnly: true,
             sameSite: "none",
-            domain: 'https://theblogpost.netlify.app/',
+            domain: "theblogpost.netlify.app",
             secret: true,
 
         } ).json({
