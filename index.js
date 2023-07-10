@@ -6,7 +6,7 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const multer = require('multer');
 const uploadMiddleware = multer({ dest: 'api/uploads' });
-const path = require('path');
+
 
 dotenv.config();
 app.use(cors({
@@ -16,11 +16,11 @@ app.use(cors({
 app.use(express.json())
 app.use(cookieParser({ domain: 'https://blogbackend-e8fr.onrender.com' }));
 app.use('', express.static(__dirname + 'api/uploads'));
-app.use(express.static(path.join(__dirname , './client/build')));
+// app.use(express.static(path.join(__dirname , './client/build')));
 
-app.get('*', function (req, res){
-    res.sendFile(path.join(__dirname, "./client/build/index.html"))
-})
+// app.get('*', function (req, res){
+//     res.sendFile(path.join(__dirname, "./client/build/index.html"))
+// })
 
 const login = require('./controller/login');
 const profile = require('./controller/profile');
