@@ -15,11 +15,12 @@ const login = async (req, res) => {
         //logedIn
         const token = jwt.sign({ email, id: userDoc._id, Name }, secret,)
             
-        res.cookie('token', token,).json({
+        res.cookie('token', token ).json({
                 id: userDoc._id,
                 email,
                 Name,
-                token
+                token,
+                domain: 'https://theblogpost.netlify.app/'
             });
         
         
