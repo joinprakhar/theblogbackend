@@ -29,6 +29,8 @@ const readPost = require('./routes/read')
 const postId = require('./routes/postId')
 const deletePost = require('./routes/deletePost')
 const userInfo = require('./controller/userInfo');
+const createComment = require('./routes/createComment')
+const Comment = require('./routes/readComment')
 
 mongoose.connect('mongodb+srv://test:test@blog1.tgkws1w.mongodb.net/?retryWrites=true&w=majority')
 
@@ -36,7 +38,7 @@ app.post('/register', register)
 app.post('/login', login)
 app.post('/logout', logout)
 
-
+app.post('/createComment', uploadMiddleware.single('file'), createComment);
 app.post('/post', uploadMiddleware.single('file'), create);
 app.put('/post/', uploadMiddleware.single('file'), update);
 app.delete('/post', uploadMiddleware.single('file'), deletePost);
@@ -45,6 +47,7 @@ app.get('/profile', profile)
 app.get('/post', readPost);
 app.get('/post/:id', postId)
 app.get('/user/:id', userInfo)
+app.get('/comment/:id', Comment)
 
 app.listen(4000, function (err) {
     if (err) console.log(err);
