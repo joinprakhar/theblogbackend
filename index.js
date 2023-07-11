@@ -12,7 +12,7 @@ dotenv.config();
 
 app.use(cors({
     credentials: true,
-    origin: 'https://thepost.onrender.com'
+    origin: 'http://localhost:3000'
 }))
 app.use(express.json())
 app.use(cookieParser());
