@@ -12,7 +12,6 @@ const profile = (req, res) => {
     console.log(token)
     if (token) {
         jwt.verify(token, secret, {}, (err, info) => {
-            //if (err) throw err;
             res.json(info);
         });}
     else{

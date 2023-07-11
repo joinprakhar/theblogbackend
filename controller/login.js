@@ -8,8 +8,6 @@ const secret = "76b7u76u7u6bfxnghnchg7yjyujjjy";
 const login = async (req, res) => {
     const { email, password } = req.body;
     const userDoc = await User.findOne({ email })
-
-
     const passOk = bcrypt.compareSync(password, userDoc.password);
     if (passOk) {
         const Name = userDoc.firstName + " " + userDoc.lastName
@@ -22,7 +20,6 @@ const login = async (req, res) => {
         })
     }else {
         res.status(400).json('wrong Credentials')
-        console.log("notdone")
     }
 };
 

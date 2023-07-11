@@ -17,11 +17,7 @@ app.use(cors({
 app.use(express.json())
 app.use(cookieParser());
 app.use('', express.static(__dirname + 'api/uploads'));
-// app.use(express.static(path.join(__dirname , './client/build'))); || "https://thepost.onrender.com""https://theblogpost.netlify.app"
 
-// app.get('*', function (req, res){
-//     res.sendFile(path.join(__dirname, "./client/build/index.html"))
-// })
 
 const login = require('./controller/login');
 const profile = require('./controller/profile');
@@ -34,7 +30,6 @@ const postId = require('./routes/postId')
 const deletePost = require('./routes/deletePost')
 const userInfo = require('./controller/userInfo');
 
-//mongoose.connect(process.env.MONGO_URL)
 mongoose.connect('mongodb+srv://test:test@blog1.tgkws1w.mongodb.net/?retryWrites=true&w=majority')
 
 app.post('/register', register)
