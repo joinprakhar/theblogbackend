@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser')
 const secret = "76b7u76u7u6bfxnghnchg7yjyujjjy";
 
-router.post("/login", async (req, res) => {
+const login = async (req, res) => {
     const { email, password } = req.body;
     const userDoc = await User.findOne({ email })
 
@@ -24,7 +24,7 @@ router.post("/login", async (req, res) => {
         res.status(400).json('wrong Credentials')
         console.log("notdone")
     }
-});
+};
 
 module.exports = login
 
