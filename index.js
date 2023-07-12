@@ -12,10 +12,10 @@ dotenv.config();
 
 app.use(cors({
     credentials: true,
-    origin: 'https://theblogpost.netlify.app'
+    origin: ['https://theblogpost.netlify.app', 'http://localhost:3000', 'https://thepost.onrender.com']
 }))
 
-///http://localhost:3000
+///http://localhost:3000 origin: ["www.one.com","www.two.com","www.three.com"];
 app.use(express.json())
 app.use(cookieParser());
 app.use('', express.static(__dirname + 'api/uploads'));
